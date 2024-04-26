@@ -1,3 +1,238 @@
-# Limits
+# Introduction to Limits
+![Limits](/ex1.png)
+The symbol $ \lim $ means we're taking a limit of something.
 
-feagheaglhegkshgkrsghskh
+The expression to the right of $ \lim $ is the expression we're taking the limit of. In our case, that's the function $ f $.
+
+The expression $ x \to 3 $  that comes below  means that we take the limit of $ f $ as values of  approach 3.
+ 
+## Evaluating Limits Graphically
+
+Imagine someone is standing 10 metres from a wall. We tell that person to move halfway to the wall. We then tell them to again move halfway to the wall, and we continue to do this. Theoretically, the person will never reach the wall. However, we can say that as the number of trials moves to infinity, the limit of where the person is standing will be the wall.
+
+Of course, the person will never reach the wall (theoretically), but we could still refer to the wall as the limit.
+
+Another way to think about limits is to think about sequences.
+
+Consider the sequence $f(n)$ where $n$ is a positive integer referring to the ordinal position of the term in the sequence and $f(n)$ is the value of that term.
+
+$$
+1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, \cdots
+$$
+
+The values are getting closer and closer to 0. We know that the values will never reach 0, but they will get infinitely close to 0. We can say that the limit of the sequence as the number of terms goes to infinity is 0.
+
+$$
+\lim_{n \to \infty} f(n)=0
+$$
+
+In mathematics, a limit is the value that a function (or sequence) "approaches" as the input (or index) "approaches" some value. Limits are essential to calculus (and mathematical analysis in general) and are used to define continuity, derivatives, and integrals. When dealing with functions, we can let the $x$-value inputted to the function grow closer and closer to some set value. We then watch the pattern of $y$-values to see if there is a set $y$-value that we grow infinitely close to. If there is such a value, we say that that is the value of the limit.
+
+## Example
+
+Suppose that we wish to determine $\lim_{x \to 3} (-x^2+6x-5 )$. We can draw the graph of $y=-x^2+6x-5$:
+
+![graph](/limitsgraph.jpg)
+
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
+    $$
+    \begin{align*}
+        \lim_{x \to 3^-} f(x) &= 4 \\
+        \lim_{x \to 3^+} f(x) &= 4 \\
+        \lim_{x \to 3} f(x) &= 4
+    \end{align*}
+    $$
+  </div>
+</div>
+
+When determining whether the limit as x approaches a particular value of a function exists, we compare the two one-sided limits and see if they are the same. If they are, then the limit exists, and is equal to that common value.
+
+
+<div className="border-2 border-cyan-300">If $\lim _{x \rightarrow a^{-}} f(x)=b$ and if $\lim _{x \rightarrow a^{+}} f(x)=b$ then $\lim _{x \rightarrow a} f(x)=b$
+However, if $\lim _{x \rightarrow a^{-}} f(x)$ exists and if $\lim _{x \rightarrow a^{+}} f(x)$ exists but $\lim _{x \rightarrow a^{-}} f(x) \neq \lim _{x \rightarrow a^{+}} f(x)$, then $\lim _{x \rightarrow a} f(x)$ does not exist.</div>
+
+Note that in the last example, we expressed that limits were described as being equal to $\infty$ and to $-\infty$. Technically, nothing can be equal to $\infty$ or $-\infty$, so one could immediately conclude that $\lim_{x \to 4}\left( \frac{x+1}{x-4}\right)$ does not exist, as soon as one of the one-sided limits is equal to $\infty$ or $-\infty$. However, in this course, we will allow one-sided limits to be expressed as $\infty$ or $-\infty$. This will include limits as $x$ approaches $\infty$ or $-\infty$, which can only be approached from one direction. 
+
+However, if we are seeking the limit of a function as $x$ approaches a real number (a two-sided limit), and if one of the one-sided limits is equal to $\infty$ or $-\infty$, then we will state that the limit of the function as $x$ approaches the real number does not exist.
+
+### Limits that can only be approached from one side
+Sometimes, we will come across a limit that can only be approached from the left or from the right. The most common type of limit of this form is when we seek to find the limit of a function as $x$ approaches $\infty$ or as $x$ approaches $-\infty$.
+
+If we want to evaluate the limit of a function as $x$ approaches $-\infty$, we can only approach it from the right because we can’t be to the left of $-\infty$. Similarly, if we want to evaluate the limit of a function as $x$ approaches $\infty$, we can only approach it from the left because we can’t be to the right of $\infty$.
+
+| Expression  |  Explanation |
+| :-----: | :----: |
+| $\frac{0}{0}$ |  Indeterminate: maybe the limit and maybe it doesn't. Do more work! |
+| $ \frac{\text{Non-Zero}}{0} $ | The limit does not exist. You're done working.|
+| $\frac{\text{Anything}}{\text{Non-Zero}}$ | That's the answer :)|
+
+## Evaluating Limits Algebraically
+Assume that we are trying to evaluate $\lim_{x \to c}f(x), c \in \mathbb{R}$
+
+We often don't use a graphing approach to evaluate a limit. Rather, we can use an algebraic approach if we remember the following steps.
+
+1. **If the curve is continuous at $x=c$**, then we can simply evaluate $f(c)$. In other words, $\lim_{x \to c} f(x) = f(c)$.
+2. **However, sometimes direct substitution leads to a result of $0/0$**. Obviously, this result is undefined. However, the limit may still exist because there may be a hole at $x=c$ in an otherwise continuous curve.
+   
+When we get the indeterminate form of $\frac{0}{0}$, we can try the following:
+
+<div className="border-2 border-red-300">
+      <li>Factor numerator and denominator, and the offending factor may cancel out of both</li>
+      <li>Rationalize the numerator and/or denominator and see if this leads you to be able to directly substitute</li>
+      <li>Simplify the function prior to substituting to see if that allows you to directly substitute</li>
+      <li>Introduce a new factor that allows the numerator and/or denominator to become a difference or sum of nth powers, which then creates the offending factor which can then be canceled from both numerator and denominator (you may wish to introduce a new variable to do this)</li>
+</div>
+
+**Examples where direct substitution leads to the correct answer**
+
+### Examples
+
+1. Evaluate $\lim_{x \to 5}(x^2+2x-3)$
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
+$$
+\begin{align*}
+\lim_{x \to 5}(x^2+2x-3) &= \text{Plug } x=5 \\ 
+    &= (5)^2+2(5)-3 \\
+    &= \boxed{32} \quad \text{That's the answer} 
+\end{align*}
+$$
+</div>
+</div>
+2. Evaluate $\lim_{x \to 3}\left(\frac{\sqrt{x-1}-\sqrt{x+1}}{\sqrt{x-3}-\sqrt{x+3}}\right)$
+
+$$
+\begin{align*}
+&=\frac{\sqrt{3-1}-\sqrt{3+1}}{\sqrt{3-3}-\sqrt{3+3}}\\
+&=\frac{\sqrt{2}-\sqrt{4}}{\sqrt{0}-\sqrt{6}}\\
+&=\frac{\sqrt{2}-2}{-\sqrt{6}}
+\end{align*}
+$$
+
+ 2a) Examples where direct substitution leads to $0/0$ but you can then factor, cross out, and then substitute in
+
+3. Evaluate $\lim_{h \to 0}\left(\frac{(2+h)^3-8}{h}\right)$
+
+$$
+\begin{align*}
+&\text{Recall: } a^3-b^3 = (a-b)(a^2+ab+b^2)\\
+&=\lim_{h\to 0}\frac{\cancel{8}+12h+6h^2+h^2\cancel{-8}}{h}\\
+&=\lim_{h\to 0}\frac{h^3+6h^2+12}{h}\\
+&=\lim_{h \to 0}\frac{\cancel{h}(h^2+6h+12)}{\cancel{h}}\\
+&= (0)^2+6(0)+12\\
+&=12
+\end{align*}
+$$
+
+4. Evaluate $\lim_{x \to 25}\left(\frac{x-25}{\sqrt{x}-5}\right)$
+
+$$
+\begin{align*}
+&=\lim_{x \to 25}\left(\frac{x-25}{\sqrt{x}-5} \times \frac{(\sqrt{x})^2-(5)^2}{\sqrt{x}-5}\right)\\
+&=\lim_{x \to 25}\left(\frac{\cancel{(\sqrt{x}-5)}(\sqrt{x}+5)}{\cancel{(\sqrt{x}-5)}}\right)\\
+&=\sqrt{25}+5\\
+&=10
+\end{align*}
+$$
+
+2b)  Examples where direct substitution leads to 0/0 but we can rationalize the numerator and/or denominator, then perhaps factor, then cross out then substitute
+
+ 1. Evaluate $\lim_{h\to 0}\frac{\sqrt{16+h}}{h}$
+ $$
+ \begin{align*}
+     &=\lim_{h\to 0}\frac{(\sqrt{16+h}-4)(\sqrt{16-h}+4)}{h(\sqrt{16+h}+4)}\\
+     &=\lim_{h\to 0}\frac{\cancel{16}+h\cancel{-16}}{h(\sqrt{16+h}+4)}\\
+     &=\lim_{h\to 0}\frac{\cancel{h}}{\cancel{h}(\sqrt{16+h}+4)}\\
+     &=\frac{1}{\sqrt{16+0}+4}\\
+     &=\frac{1}{8}
+ \end{align*}
+ $$
+2. Evaluate $\lim_{x \to 2}\frac{\frac{1}{x}-\frac{1}{2}}{x-2}$
+$$
+\begin{align*}
+    &=\lim_{x \to 2}\frac{\frac{2}{2x}-\frac{x}{2x}}{x-2}\\
+    &=\lim_{x \to 2}\frac{\frac{2-x}{2x}}{x-2}\\
+    &=\lim_{x \to 2}\frac{2-x}{2x(x-2)}\\
+    &=\lim_{x \to 2}\frac{(-1)\cancel{(x-2)}}{(2x)\cancel{(x-2)}}\\
+    &=-\frac{1}{4}
+\end{align*}
+$$
+
+ 2c) Examples where direct substitution leads to $\frac{0}{0}$, but we can create a difference of nth powers or sum of nth powers (if $n$ is odd) and then factor and cross out to substitute.
+
+**Some people find it beneficial to introduce a new variable in these questions, but it is not necessary.**
+1. Evaluate $ \lim_{x \to 64}\frac{\sqrt[3]{x}-4}{x-64} $
+$$
+\begin{align*}
+    & \text{Let }\quad a=x^\frac{1}{3}, \quad b=4\\
+    &=\lim_{x \to 64}\frac{a-b}{x-64}\\
+    &=\lim_{x \to 64}\frac{(a-b)(a^2+ab+b^2)}{(x-64)(a^2+ab+b^2)}\\
+    &=\lim_{x \to 64}\frac{a^3-b^3}{(x^{\frac{2}{3}}+4x^{\frac{1}{4}}+16)}\\
+    &=\lim_{x \to 64}\frac{\cancel{x-64}}{\cancel{(x-64)}(x^{\frac{2}{3}}+4x^{\frac{1}{4}}+16)}\\
+    &=\frac{1}{(64)^{\frac{2}{3}}+4(64)^{\frac{1}{4}}+16}\\
+    &=\frac{1}{16+16+16}\\
+    &=\frac{1}{48}
+\end{align*}
+$$
+## One Sided Limits
+
+Recall this statement about limits from an earlier lesson.
+
+<div className="border-2 border-red-300">
+If $\lim_{x\to a^-}f(x)=b$ and if $\lim_{x\to a^+}f(x)=b$ then $\lim_{x\to a}f(x)=b$.
+However, if $\lim_{x \to a^{-}}f(x)$ exists and if $\lim_{x \to a^+}$ exists but $\lim_{x \to a^-}f(x)\neq \lim_{x \to a^+}f(x)$, then $\lim_{x \to a}f(x)$ does not exist.
+</div>
+
+Given that
+$$
+f(x)=
+\left\{ \begin{array}{cl}
+-x-3, & x \leq 1 \\
+3x, & x > -1
+\end{array} \right.
+$$
+
+use a graphing approach to determine $\lim\limits_{x \to -1} f(x)$ or justify that it does not exist.
+
+    $\lim_{x \to -1^-}f(x)=-2$
+
+    $\lim_{x\ to -1^+}f(x)=-3$
+
+   $\boxed{\therefore\ \lim\limits_{x \to -1} f(x)}$ does not exist.
+
+   ### Limits of Rational Functions as \( x \) Approaches Infinity or Negative Infinity:
+
+When evaluating the limit of a rational function as \( x \) approaches either infinity or negative infinity (i.e., a polynomial over another polynomial), the following approach can be employed:
+
+1. Determine the degrees of the numerator and denominator. Factor out \( x^n \) from both the numerator and denominator, where \( n \) is the greater or lesser of the two degrees. If both degrees are the same, \( n \) equals that degree. (Factor out the same term from both the numerator and denominator.) Cancel out like factors.
+   
+2. Determine the limit of each term in the numerator and sum those limits. Determine the limit of each term in the denominator and sum those limits.
+    - A numerator with a finite limit over a denominator growing without bound yields a limit of 0.
+    - A numerator with a finite limit over a denominator with a finite limit produces a limit equal to the quotient of those limits.
+    - A numerator with a finite limit over a denominator that tends to zero yields a limit of infinity or negative infinity.
+    - A numerator growing without bound over a denominator that's finite or tends to zero produces a limit of infinity or negative infinity.
+    - A numerator that tends to zero over a denominator that's finite or growing without bound yields a limit of 0.
+
+## General Observations Regarding Continuity:
+
+1. A function that is not continuous has some type of break in its graph. This break is the result of a hole, jump, or vertical asymptote.
+2. All polynomial functions are continuous for all real numbers.
+3. A rational function $h(x)=\frac{f(x)}{g(x)}$ is continuous at $x=a$ if $g(a) \neq 0$.
+4. A rational function in simplified form has a discontinuity at the zeros of the denominator.
+5. When the one-sided limits are not equal to each other, then the limit at this point does not exist and the function is not continuous at this point.
+
+### Properties of Limits
+
+-  $\lim _{x \rightarrow a} x = a$
+-  $\lim _{x \rightarrow a} c = c$
+-  $\lim _{x \rightarrow a}[c f(x)] = c \lim _{x \rightarrow a} f(x)$
+-  $\lim _{x \rightarrow a}[f(x) \pm g(x)] = \lim _{x \rightarrow a} f(x) \pm \lim _{x \rightarrow a} g(x)$
+-  $\lim _{x \rightarrow a}[f(x) g(x)] = \lim _{x \rightarrow a} f(x) \lim _{x \rightarrow a} g(x)$
+-  $\lim _{x \rightarrow a} \frac{f(x)}{g(x)} = \frac{\lim _{x \rightarrow a} f(x)}{\lim _{x \rightarrow a} g(x)}$, only if $\lim _{x \rightarrow a} g(x) \neq 0$
+-  $\lim _{x \rightarrow a}[f(x)]^n = \left[\lim _{x \rightarrow a} f(x)\right]^n$
+
+Where $c$ is a constant, $\lim _{x \rightarrow a} f(x)$ and $\lim _{x \rightarrow a} g(x)$ exist.
+
+If $P(x)$ is a polynomial, then
+$$\lim _{x \rightarrow a} P(x) = P(a)$$

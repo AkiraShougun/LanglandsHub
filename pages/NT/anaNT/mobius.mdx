@@ -1,4 +1,5 @@
-import Card from "../../../components/Card";
+import CostumeCard from "../../../components/Card";
+import { Tabs } from "nextra/components";
 
 # Mobius Function
 
@@ -6,14 +7,63 @@ import Card from "../../../components/Card";
 
 The mobius function $\mu$ is defined as follows:
 
-<Card name="Definition">
-  <div className=" text-center">$\mu(1)=1$</div>
+<CostumeCard name="Definition">
+  ```math
+  \mu(1)=1
+  ```
 
     If $n > 1$, write $n=p_1^{a_1} \cdots p_k^{a_k}$. Then
 
 
 
-    <div className=" text-center m-2">$\mu(n)=(-1)^k$ if  $a_1=\cdots=a_k=1$</div>
-    <div className=" text-center m-2">$\mu(n) = 0$ otherwise.</div>
+    ```math
+    \mu(n)=(-1)^k \text{ if }  a_1=\cdots=a_k=1
+    ```
+    ```math
+    \mu(n) = 0. \text{  otherwise}
+    ```
 
-</Card>
+</CostumeCard>
+
+Notice that $\mu(n) = 0$ if and only if n has a square factor > 1.
+
+Here is a short table of values of $\mu(n)$:
+
+| $n:$      |  1  |   2 | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  |
+| :-------- | :-: | --: | --- | --- | --- | --- | --- | --- | --- | --- |
+| $\mu(n):$ |  1  |  -1 | -1  | 0   | -1  | 1   | -1  | 0   | 0   | 1   |
+
+## Mobius Identity
+
+<Tabs items={["Theorem", "Proof"]}>
+  <Tabs.Tab>
+    <CostumeCard name="Theorem">
+      If $n \ge 1$ we have
+
+      ```math
+      \sum_{d|n}\mu(d)= \left\lfloor \frac{1}{n} \right\rfloor
+                = \left\{ \begin{array}{cl}
+                1 & : \ n = 1. \\
+                0 & : \ n > 1.
+                \end{array} \right.
+
+      ```
+    </CostumeCard>
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <CostumeCard name="Proof">
+      The formula is clearly true if $n=1$. Assume, then, that $n>1$ and write $n=p_1^{a_1} \cdots p_k^{a_k}$.
+      In the sum $\sum_{d|n}\mu(d)$ the only nonzero terms come from $d=1$ and from those divisors of n which are products of distinct primes.
+
+      Thus
+
+      ```math
+      \sum_{d|n}\mu(d) = \mu(1)+\mu(p_1)+\cdots+\mu(p_k)+\mu(p_1p_2)+\cdots+\mu(p_{k-1}p_k)+\cdots+\mu(p_1p_2\cdots p_k)\\
+
+=1+\binom{k}{1}(-1)+\binom{k}{1}(-1)^2+ \cdots+\binom{k}{k}(-1)^k=(1-1)^k=0 \text{. } \square
+```
+</CostumeCard>
+
+  </Tabs.Tab>
+</Tabs>
