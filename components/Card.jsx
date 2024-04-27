@@ -6,7 +6,7 @@ const Card = ({ children, name }) => {
       <h1>
         <strong>{name}</strong>
       </h1>
-      <div>{children}</div>
+      <div className=" overflow-x-auto">{children}</div>
     </div>
   );
 };
