@@ -27,6 +27,10 @@ export default {
         <a href="https://github.com/AkiraShougun" target="_blank">
           AkiraShougun
         </a>
+        /
+        <a href="https://github.com/Kensukeken" target="_blank">
+          Kensukeken
+        </a>
         . All rights reserved.
       </span>
     ),

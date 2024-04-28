@@ -1,5 +1,14 @@
 {
-  "index": "Introduction",
-  "NT": "Number Theory",
-  "calculus" : "Calculus"
+  "index": {
+    "type": "page",
+    "title": "LanglandsHub",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": {
+    "type": "page",
+    "title": "Documentation"
+  }
 }

@@ -1,0 +1,52 @@
+import Scard from "../../../../components/Card";
+
+# Chebyshev Functions
+
+## Chebyshev's Theta-function
+
+<Scard name="Definition">
+If $x>0$ we define Chebyshev's $vartheta$-function by the equation
+```math
+    \vartheta(x)=\sum_{p \le x} \log p
+```
+where $p$ runs over all primes $\le$ x
+</Scard>
+
+Similary we have another function that is related to the theta function.
+
+## Chebyshev's Psi-function
+
+<Scard name="Definition">
+ For $x>0$ we define Chebyshev's $\psi$-function by the formula
+ ```math
+    \psi(x)=\sum_{n \le x} \Lambda(n)
+```
+where $\Lambda$ is the [Mangoldt function](/docs/NT/anaNT/mangoldt#definition).
+</Scard>
+
+Now with our definitions we can combine these two functions as follows,
+
+since $\Lambda(n) = 0$ unless $n$ is a prime power we can write the definition of $\psi(x)$ as,
+
+```math
+    \psi(x) = \sum_{n \le x} \Lambda(n) = \sum_{m=1}^{\infty} \sum_{p \le x^{1/m}} \log p
+```
+
+Now you might notice that the sum on $m$ is in fact a finite sum. Surely enough, the sum on $p$ is empty if $x^{1/m} < 2$, that is,
+if $(1/m) \log x < \log 2$, or if,
+
+```math
+    m > \frac{\log x}{\log 2} = \log_{2}(x).
+```
+
+Therefore we get,
+
+```math
+    \psi(x) = \sum_{m \le \log_2(x)}\sum_{p \le x^{1/m}} \log p
+```
+
+Now we can use the theta function to finish it off and get,
+
+```math
+    \psi(x) = \sum_{m \le \log_2(x)}\sum_{p \le x^{1/m}} \log p = \sum_{m \le \log_2 x} \vartheta(x^{1/m})
+```
