@@ -1,6 +1,11 @@
-import React from "react";
+import { ReactElement } from "react";
 
-const Card = ({ children, name }) => {
+interface CardProps {
+  children: ReactElement | ReactElement[];
+  name: string;
+}
+
+const Card = ({ children, name }: CardProps) => {
   return (
     <div className="rounded-lg bg-opacity-10 bg-zinc-500 p-5">
       <h1>
