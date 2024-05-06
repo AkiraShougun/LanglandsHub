@@ -1,15 +1,22 @@
 import Link from "next/link";
 import { CarouselPlugin } from "../components/Caro";
+import { motion } from "framer-motion";
 
 <div>
-  <h1 className=" max-sm:text-5xl min-[640px]:text-6xl lg:text-7xl m-8 max-w-[60rem]">
-    <strong>Your Compass in the Exciting Journey of Mathematics!</strong>
-  </h1>
-  <h2 className="max-sm:text-xl :text-2xl lg:text-2xl mt-8 m-8 max-w-[55rem]">
-    Discover the magic of mathematics with LanglandsHub! A universe of knowledge
-    awaits learners of all levels. Dive in, explore, and let the adventure
-    begin! Click below to start your journey.
-  </h2>
+  <motion.div
+    initial={{ x: -100 }}
+    animate={{ x: 10 }}
+    transition={{ ease: "easeOut", duration: 1 }}
+  >
+    <h1 className=" max-sm:text-5xl min-[640px]:text-6xl lg:text-7xl m-8 max-w-[60rem]">
+      <strong>Your Compass in the Exciting Journey of Mathematics!</strong>
+    </h1>
+    <h2 className="max-sm:text-xl :text-2xl lg:text-2xl mt-8 m-8 max-w-[55rem]">
+      Discover the magic of mathematics with LanglandsHub! A universe of
+      knowledge awaits learners of all levels. Dive in, explore, and let the
+      adventure begin! Click below to start your journey.
+    </h2>
+  </motion.div>
   <button className="text-2xl ml-8 inline-flex h-16 w-48 animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
     <Link href="/docs/update">Get Started</Link>
   </button>
